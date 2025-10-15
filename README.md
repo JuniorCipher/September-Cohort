@@ -1,6 +1,18 @@
 # RETAIL SALES ANALYSIS
+
 ## Table of contents
 
+- [Project Overview](#project-overview)
+- [Data Source](#data-source)
+- [Data Quality Assessment](#data-quality-assessment)
+- [Tools](#tools)
+- [Data Cleaning & Preparation](#data-cleaning-&-prepation)
+- [Exploratory Data Analysis](#exploratory-data-analysis)
+- [Data Analysis](#data-analysis)
+- [Results](#results)
+- [Recommendation](#recommendation)
+- [Limitations](#limitations)
+- [Reference](#reference)
 
 ### Project Overview
 
@@ -57,6 +69,8 @@ To analyze a fictional retail company's sales data to uncover key business trend
 
 ### Data Analysis 
 
+This DAX code creates a calculated column called "Month" that converts the numeric month value from the [Date] column into a 3-letter month name.
+
 ```Power Query
 Month = 
 SWITCH(
@@ -76,6 +90,8 @@ SWITCH(
 )
 ```
 
+This DAX formula creates a calculated column named Season that assigns each date to a season based on the month.
+
 ```DAX Measures
 Season = 
 SWITCH(
@@ -87,6 +103,38 @@ SWITCH(
 )
 ```
 
+This DAX code creates an AgeGroup column by categorizing individuals based on their [Age] value into defined age ranges.
+
+```
+dax
+AgeGroup = 
+IF([Age] <= 25, "18-25",
+    IF([Age] <= 35, "26-35",
+        IF([Age] <= 45, "36-45",
+            IF([Age] <= 55, "46-55", "56+")
+        )
+    )
+)
+```
+
 ### Results
+
+**Here are the things i notice during my analysis:**
+- Customers purchases more expensive Beauty products which leads to higher revenue from Beauty products in 2024
+- Age group 26-35(Early working Adults) purchases more of clothings products
+- The total purchases amount made from Age group 46-55(Mature Adults) is $101k, why? because they have the higher purchasing power.
+- The winter season has a higher purchasing amount of $126k, why? because winter is a cold season and customers will make more purchases on clothing products
+- The company sold the 2514 quantity of products and generated the total sum of $456k in my 2 years dataset analysis
+- Age group 18-25 and 56+ show lower total spending, possibly due to income levels or fewer purchasing needs.
+
+  
+### Recommendation
+
+
+### Limitations
+
+### Reference
+
+1. [Kaggle](https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset?resource=download)
 
 
