@@ -6,7 +6,7 @@
 - [Data Source](#data-source)
 - [Data Quality Assessment](#data-quality-assessment)
 - [Tools](#tools)
-- [Data Cleaning & Preparation](#data-cleaning-&-prepation)
+- [Data Cleaning and Preparation](#data-cleaning-and-preparation)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Data Analysis](#data-analysis)
 - [Results](#results)
@@ -16,46 +16,64 @@
 
 ### Project Overview
 
-This data analysis project aims to provide insights performance of a etail landscape, capturing essential attributes that drive retail operations and customer interactions. It includes key details such as Transaction ID, Date, Customer ID, Gender, Age, Product Category, Quantity, Price per Unit, and Total Amount. These attributes enable a multifaceted exploration of sales trends, demographic influences, and purchasing behaviors.
+This project focuses on analyzing a retail sales dataset to uncover meaningful insights into customer behavior, sales trends, and product performance. The dataset contains important information such as Transaction ID, Date, Customer ID, Gender, Age, Product Category, Quantity, Price per Unit, and Total Amount.
 
+The main goal of this analysis is to identify patterns that can help improve sales strategies, understand demographic influences on purchasing behavior, and provide data-driven recommendations for business growth.
 
 ### Data Source
 
 The data for this project was sourced from Kaggle.
-Dataset Name: Retail Sales Datasets 
-Author/Creator: Mohammad Talib
-License: CC0: Public Domain
-Link: https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset?resource=download
+**Dataset Name:** Retail Sales Datasets 
+**Author/Creator:** Mohammad Talib
+**License:** CC0: Public Domain
+**Link:** https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset?resource=download
 
-**Overview**: This dataset is a snapshot of a fictional retail landscape, capturing essential attributes that drive retail operations and customer interactions. It includes key details such as Transaction ID, Date, Customer ID, Gender, Age, Product Category, Quantity, Price per Unit, and Total Amount. These attributes enable a multifaceted exploration of sales trends, demographic influences, and purchasing behaviors.
+**Overview**: This dataset represents a fictional retail environment that captures various aspects of customer transactions and sales activities, enabling a broad exploration of retail operations and customer behavior.
 
 ### Data Quality Assessment
 
-After conducting a thorough data quality assessment, I confirmed the dataset was analysis-ready with no missing values, duplicates, or data type inconsistencies. This allowed me to focus directly on exploratory data analysis and visualization to answer key business questions.
+A thorough data quality assessment was carried out to ensure the dataset was suitable for analysis. During this process, I checked for missing values, duplicates, incorrect data types, and any logical inconsistencies.
+
+The dataset was found to be clean - there were no missing or duplicate values, and all data types were correctly formatted. This allowed me to move directly to the analysis and visualization stages without any major cleaning operations.
 
 ### Tools
 
-- Excel - Data cleaning
-  - [Download here](https://microsoft.com)
-- Power BI - Data Visualization & report
+The analysis and visualization were performed using Power BI, which was used to explore the dataset, create calculated columns, and develop interactive dashboards for better insights.
 
-
-### Data Cleaning & Preparation
+### Data Cleaning and Preparation
 
 Before proceeding with visualization and analysis, I performed a comprehensive data quality assessment to ensure the reliability of my findings. The dataset was found to be remarkably clean, which allowed me to proceed directly to analysis.
 
-**Methods used for assessment:**
-- Checked for missing values in all columns
-- Verified data types were appropriate for each field
-- Identified and examined potential outliers
-- Checked for duplicate entries
-- Validated logical consistency (e.g., Quantity × Price per Unit = Total Amount)
+### **Methods used for assessment:**
 
-**Findings:** The dataset required no cleaning operations, as it contained no missing values, no duplicates, and all data types were correctly formatted.
+Before analysis, I verified that the dataset met quality standards by:
+
+- Checking for missing or duplicate records.
+
+- Ensuring data types were correctly assigned.
+
+- Confirming that calculations such as Quantity × Price per Unit = Total Amount were accurate.
+
+- Identifying any possible outliers or unusual patterns.
+
+- After review, the dataset was confirmed to be clean and analysis-ready.
+
 
 ### Exploratory Data Analysis
 
-To analyze a fictional retail company's sales data to uncover key business trends, understand customer purchasing behavior, and derive actionable insights to drive sales and marketing strategies.
+The EDA stage aimed to understand sales trends and customer purchasing behavior. I explored patterns such as:
+
+- How customer age and gender affect buying decisions.
+
+- Seasonal trends in sales performance.
+
+- Which product categories generate the most revenue.
+
+- Relationships between age, spending habits, and product preferences.
+
+- Variations in purchasing behavior based on transaction size and frequency.
+
+ This stage provided an overview of how customers interact with different products and time periods throughout the dataset.
 
 **Key Business Questions this analysis will answer:**
 - How does customer age and gender influence their purchasing behavior?
@@ -69,7 +87,10 @@ To analyze a fictional retail company's sales data to uncover key business trend
 
 ### Data Analysis 
 
-This DAX code creates a calculated column called "Month" that converts the numeric month value from the [Date] column into a 3-letter month name.
+Several DAX formulas were used in Power BI to create calculated columns that enhanced the analysis.
+
+1. Creating a Month Column
+This converts the numeric month value into a short month name.
 
 ```Power Query
 Month = 
@@ -90,7 +111,7 @@ SWITCH(
 )
 ```
 
-This DAX formula creates a calculated column named Season that assigns each date to a season based on the month.
+2. Categorizing Seasons Based on Month
 
 ```DAX Measures
 Season = 
@@ -103,7 +124,7 @@ SWITCH(
 )
 ```
 
-This DAX code creates an AgeGroup column by categorizing individuals based on their [Age] value into defined age ranges.
+3. Grouping Customers by Age Range
 
 ```
 dax
@@ -116,25 +137,47 @@ IF([Age] <= 25, "18-25",
     )
 )
 ```
+These calculated columns helped me analyze seasonal trends, age-based purchasing behavior, and product performance throughout the dataset.
 
 ### Results
 
-**Here are the things i notice during my analysis:**
-- Customers purchases more expensive Beauty products which leads to higher revenue from Beauty products in 2024
-- Age group 26-35(Early working Adults) purchases more of clothings products
-- The total purchases amount made from Age group 46-55(Mature Adults) is $101k, why? because they have the higher purchasing power.
-- The winter season has a higher purchasing amount of $126k, why? because winter is a cold season and customers will make more purchases on clothing products
-- The company sold the 2514 quantity of products and generated the total sum of $456k in my 2 years dataset analysis
-- Age group 18-25 and 56+ show lower total spending, possibly due to income levels or fewer purchasing needs.
+From my analysis, several key findings emerged:
 
-  
+- Beauty products recorded the highest revenue in 2024 due to their higher prices and strong customer demand.
+
+- The 26–35 age group (Early Working Adults) made the most purchases in the Clothing category, reflecting their active lifestyle and fashion interest.
+
+- The 46–55 age group (Mature Adults) generated a total of $101k in purchases, showing their higher purchasing power.
+
+- The Winter season recorded the highest sales of $126k, likely due to increased demand for warm clothing and seasonal items.
+
+- Across the dataset, the company sold 2,514 items, generating a total revenue of $456k over two years.
+
+- The 18–25 and 56+ age groups had the lowest total spending, possibly due to lower income levels or fewer purchasing needs.
+
+These results reveal that the company’s strongest customer base lies within the 26–55 age group, and that seasonal patterns - especially during winter play a major role in driving sales.
+
 ### Recommendation
 
+Based on the insights obtained, I recommend the following actions:
+
+- **Focus on High-Value Categories** – Prioritize marketing campaigns for Beauty and Clothing products to maximize revenue.
+
+- **Target Working Adults (26–55)** – Create promotions and loyalty programs aimed at this high-spending group.
+
+- **Leverage Seasonal Opportunities** – Increase inventory and marketing during the Winter season when sales are highest.
+
+- **Engage Younger and Older Shoppers** – Introduce student and senior discounts to encourage more purchases among low-spending age groups.
+
+- **Continue Data Monitoring** – Regularly update and analyze sales data to detect new trends and opportunities.
 
 ### Limitations
+
+Although the dataset was clean and comprehensive, it represents fictional data and may not fully capture real-world market fluctuations. In addition, the dataset does not include customer location or payment method details, which could provide deeper insights into regional preferences and spending behavior.
 
 ### Reference
 
 1. [Kaggle](https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset?resource=download)
-
+[Talib, M. (n.d.). Retail Sales Dataset. Kaggle.
+Retrieved from](https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset?resource=download)
 
