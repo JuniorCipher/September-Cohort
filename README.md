@@ -157,6 +157,8 @@ From my analysis, several key findings emerged:
 
 These results reveal that the company’s strongest customer base lies within the 26–55 age group, and that seasonal patterns - especially during winter play a major role in driving sales.
 
+[Sales PORTFOLIO.pbix…]()
+
 ### Recommendation
 
 Based on the insights obtained, I recommend the following actions:
